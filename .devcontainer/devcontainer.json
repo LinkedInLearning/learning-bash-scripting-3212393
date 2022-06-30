@@ -1,0 +1,9 @@
+{
+  "extensions": [
+    "GitHub.github-vscode-theme"
+    // Additional Extensions Here
+  ],
+  "onCreateCommand" : "echo PS1='\"$ \"' >> ~/.bashrc", //Set Terminal Prompt to $
+}
+
+// DevContainer Reference: https://code.visualstudio.com/docs/remote/devcontainerjson-reference
