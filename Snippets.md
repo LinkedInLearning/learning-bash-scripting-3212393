@@ -1,117 +1,86 @@
-# Code Snippets used in Learning Bash Scripting on LinkedIn Learning
+# Code Snippets used in _Learning Bash Scripting_ on LinkedIn Learning
 
 This document contains the commands used in the course.
 
 ## 01_05 Bash expansions and substitutions
-
-`echo ~`
-
-`echo ~-`
+```bash
+echo ~
+echo ~-
+```
 
 ## 01_06 Brace expansion
-
-`echo {1..10}`
-
-`echo {10..1}`
-
-`echo {01..10}`
-
-`echo {01..100}`
-
-`{echo a..z}`
-
-`echo {Z..A}`
-
-`echo {1..30..3}`
-
-`echo {a..z..2}`
-
-`touch file_{01..12}{a..d}`
-
-`echo {cat,dog,fox}`
-
-`echo {cat,dog,fox}_{1..5}`
+```bash
+echo {1..10}
+echo {10..1}
+echo {01..10}
+echo {01..100}
+{echo a..z}
+echo {Z..A}
+echo {1..30..3}
+echo {a..z..2}
+touch file_{01..12}{a..d}
+echo {cat,dog,fox}
+echo {cat,dog,fox}_{1..5}
+```
 
 ## 01_07 Parameter expansion
-
-`greeting="hello there!"`
-
-`echo $greeting`
-
-`echo ${greeting:6}`
-
-`echo ${greeting:6:3}`
-
-`echo ${greeting/there/everybody}`
-
-`echo ${greeting//e/_}`
-
-`echo ${greeting/e/_}`
-
-`echo $greeting:4:3`
+```bash
+greeting="hello there!"
+echo $greeting
+echo ${greeting:6}
+echo ${greeting:6:3}
+echo ${greeting/there/everybody}
+echo ${greeting//e/_}
+echo ${greeting/e/_}
+echo $greeting:4:3
+```
 
 ## 01_08 Command substitution
-
-`uname -r`
-
-`echo "The kernel is $(uname -r)."`
-
-`echo "Result: $(python3 -c 'print("Hello from Python!")' | tr [a-z] [A-Z])"`
+```bash
+uname -r
+echo "The kernel is $(uname -r)."
+echo "Result: $(python3 -c 'print("Hello from Python!")' | tr [a-z] [A-Z])"
+```
 
 ## 01_09 Arithmetic expansion
-
-`echo $(( 2 + 2 ))`
-
-`echo $(( 4 - 2 ))`
-
-`echo $(( 4 * 5 ))`
-
-`echo $(( 4 / 5 ))`
+```bash
+echo $(( 2 + 2 ))
+echo $(( 4 - 2 ))
+echo $(( 4 * 5 ))
+echo $(( 4 / 5 ))
+```
 
 ## 02_02 Understanding Bash script syntax
-
-`nano myscript`
-
 ```bash
+nano myscript
+
 #!/usr/bin/env bash
 echo "hello"
 
 # This is a comment
 echo "there"
+
+chmod +x myscript
+./myscript
 ```
 
-`chmod +x myscript`
-`./myscript`
-
 ## 02_03 Displaying text with 'echo'
-
-`echo hello world`
-
-`worldsize=big`
-
-`echo hello $worldsize world`
-
-`echo "The kernel is $(uname -r)"`
-
-`echo The kernel is $(uname -r)`
-
-`echo The (kernel) is $(uname -r)`
-
-`echo The \(kernel\) is $(uname -r)`
-
-`echo 'The kernel is $(uname -r)`
-
-`echo "The (kernel) is $(uname -r)"`
-
-`echo "The (kernel) is \$(uname -r)"`
-
-`echo`
-
-`echo; echo "More space!"; echo`
-
-`echo -n "No newline"`
-
-`echo -n "Part of "; echo -n "a statement"`
+```bash
+echo hello world
+worldsize=big
+echo hello $worldsize world
+echo "The kernel is $(uname -r)"
+echo The kernel is $(uname -r)
+echo The (kernel) is $(uname -r)
+echo The \(kernel\) is $(uname -r)
+echo 'The kernel is $(uname -r)'
+echo "The (kernel) is $(uname -r)"
+echo "The (kernel) is \$(uname -r)"
+echo
+echo; echo "More space!"; echo
+echo -n "No newline"
+echo -n "Part of "; echo -n "a statement"
+```
 
 ## 02_04 Working with variables
 
@@ -151,137 +120,86 @@ upperstring="Let's CHANGE the VALUE!"
 echo "The value of the upperstring variable is: $upperstring"
 ```
 
-`declare -p`
-
-`env`
-
-`echo $USER`
+```bash
+declare -p
+env
+echo $USER
+```
 
 ## 02_05 Working with numbers
-
-`echo $((4+4))`
-
-`echo $((8-5))`
-
-`echo $((2*3))`
-
-`echo $((8/4))`
-
-`echo $(( (3+6) - 5 * (5-2) ))`
-
-`a=3`
-
-`((a+=3))`
-
-`echo $a`
-
-`((a++))`
-
-`echo $a`
-
-`((a++))`
-
-`echo $a`
-
-`((a--))`
-
-`echo $a`
-
-`(($a++))`
-
-`((a++))`
-
-`echo $a`
-
-`a=$a+2`
-
-`echo $a`
-
-`declare -i b=3`
-
-`b=$b+3`
-
-`echo $b`
-
-`echo $((1/3))`
-
-`declare -i c=1`
-
-`declare -i d=3`
-
-`e=$(echo "scale=3; $c/$d | bc)`
-
-`echo $e`
-
-`echo $RANDOM`
-
-`echo $(( 1 + $RANDOM % 10 ))`
-
-`echo $(( 1 + $RANDOM % 20 ))`
+```bash
+echo $((4+4))
+echo $((8-5))
+echo $((2*3))
+echo $((8/4))
+echo $(( (3+6) - 5 * (5-2) ))
+a=3
+((a+=3))
+echo $a
+((a++))
+echo $a
+((a++))
+echo $a
+((a--))
+echo $a
+(($a++))
+((a++))
+echo $a
+a=$a+2
+echo $a
+declare -i b=3
+b=$b+3
+echo $b
+echo $((1/3))
+declare -i c=1
+declare -i d=3
+e=$(echo "scale=3; $c/$d | bc)
+echo $e
+echo $RANDOM
+echo $(( 1 + $RANDOM % 10 ))
+echo $(( 1 + $RANDOM % 20 ))
+```
 
 ## 02_06 Comparing values with test
-
-`help test`
-
-`[ -d ~ ]`
-
-`echo $?`
-
-`[ -d /bin/bash ]; echo $?`
-
-`[ -d /bin ]; echo $?`
-
-`[ "cat" = "dog" ]; echo $?`
-
-`[ "cat" = "cat" ]; echo $?`
-
-`[ 4 -lt 5 ]; echo $?`
-
-`[ 4 -lt 3 ]; echo $?`
-
-`[ ! 4 -lt 3 ]; echo $?`
+```bash
+help test
+[ -d ~ ]
+echo $?
+[ -d /bin/bash ]; echo $?
+[ -d /bin ]; echo $?
+[ "cat" = "dog" ]; echo $?
+[ "cat" = "cat" ]; echo $?
+[ 4 -lt 5 ]; echo $?
+[ 4 -lt 3 ]; echo $?
+[ ! 4 -lt 3 ]; echo $?
+```
 
 ## 02_07 Comparing values with extended test
-
-`[[ 4 -lt 3 ]]; echo $?`
-
-`[[ -d ~ && -a /bin/bash ]]; echo $?`
-
-`[[ -d ~ && -a /bin/mash ]]; echo $?`
-
-`[[ -d ~ || -a /bin/bash ]]; echo $?`
-
-`[[ -d /bin/bash ]] && echo ~ is a directory`
-
-`ls && echo "listed the directory"`
-
-`true && echo "success!"`
-
-`false && echo "success!"`
-
-`[[ "cat" =~ c.* ]]; echo $?`
-
-`[[ "bat" =~ c.* ]]; echo $?`
+```bash
+[[ 4 -lt 3 ]]; echo $?
+[[ -d ~ && -a /bin/bash ]]; echo $?
+[[ -d ~ && -a /bin/mash ]]; echo $?
+[[ -d ~ || -a /bin/bash ]]; echo $?
+[[ -d /bin/bash ]] && echo ~ is a directory
+ls && echo "listed the directory"
+true && echo "success!"
+false && echo "success!"
+[[ "cat" =~ c.* ]]; echo $?
+[[ "bat" =~ c.* ]]; echo $?
+```
 
 ## 02_08 Formatting and styling text output
-
-`echo -e "Name\t\tNumber"; echo -e "Scott\t\t123"`
-
-`echo -e "This text\nbreaks over\nthree lines"`
-
-`echo -e "\a"`
-
-`echo -e "Ding\a"`
-
-`echo -e "\033[33;44mColor Text\033[0m"`
-
-`echo -e "\033[91;100mColor Text\033[0m"`
-
-`echo -e "\033[91;100mColor Text"`
-
-`echo -e "\033[33;44mColor Text"`
-
-`echo -e "\033[4;31;40mERROR:\033[0m\033[31;40m Something went wrong.\033[0m"`
+```bash
+echo -e "Name\t\tNumber"; echo -e "Scott\t\t123"
+echo -e "This text\nbreaks over\nthree lines"
+echo -e "\a"
+echo -e "Ding\a"
+echo -e "\033[33;44mColor Text\033[0m"
+echo -e "\033[91;100mColor Text\033[0m"
+echo -e "\033[91;100mColor Text"
+echo -e "\033[33;44mColor Text"
+echo -e "\033[4;31;40mERROR:\033[0m\033[31;40m Something went wrong.\033[0m"
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -294,10 +212,10 @@ echo -e $ulinered"ERROR:"$none$red" Something went wrong."$none
 ```
 
 ## 02_09 Formatting output with printf
-
-`echo "The results are: $(( 2 + 2 )) and $(( 3 / 1 ))"`
-
-`printf "The results are: %d and %d\n" $(( 2 + 2 )) $(( 3 / 1 ))`
+```bash
+echo "The results are: $(( 2 + 2 )) and $(( 3 / 1 ))"
+printf "The results are: %d and %d\n" $(( 2 + 2 )) $(( 3 / 1 ))
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -319,39 +237,28 @@ printf "%-10s: %05d\n" "A Label" 123 "B Label" 456
 echo "----10----| --5--"
 ```
 
-`printf "%(%Y-%m-%d %H:%M:%S)T\n" 1279994448`
-
-`date +%s`
-
-`date +%Y-%m-%d\ %H:%M:%S`
-
-`printf "%(%Y-%m-%d %H:%M:%S)T\n" $(date +%s)`
-
-`printf "%(%Y-%m-%d %H:%M:%S)T\n"`
-
-`printf "%(%Y-%m-%d %H:%M:%S)T is %s\n" -1 "the time"`
+```bash
+printf "%(%Y-%m-%d %H:%M:%S)T\n" 1658179558
+date +%s
+date +%Y-%m-%d\ %H:%M:%S
+printf "%(%Y-%m-%d %H:%M:%S)T\n" $(date +%s)
+printf "%(%Y-%m-%d %H:%M:%S)T\n"
+printf "%(%Y-%m-%d %H:%M:%S)T is %s\n" -1 "the time"
+```
 
 ## 02_10 Working with arrays
-
-`declare -a snacks=("apple" "banana" "orange")`
-
-`echo ${snacks[2]}`
-
-`snacks[5]="grapes"`
-
-`snacks+=("mango")`
-
-`echo ${snacks[@]}`
-
-`for i in {0..6}; do echo "$i: ${snacks[$i]}"; done`
-
-`declare -A office`
-
-`office[city]="San Francisco"`
-
-`office["building name"]="HQ West"`
-
-`echo ${office["building name"]} is in ${office[city]}"`
+```bash
+declare -a snacks=("apple" "banana" "orange")
+echo ${snacks[2]}
+snacks[5]="grapes"
+snacks+=("mango")
+echo ${snacks[@]}
+for i in {0..6}; do echo "$i: ${snacks[$i]}"; done
+declare -A office
+office[city]="San Francisco"
+office["building name"]="HQ West"
+echo ${office["building name"]} is in ${office[city]}"
+```
 
 ## 03_01 Conditional statements with the 'if' keyword
 
@@ -381,8 +288,7 @@ else
 fi
 ```
 
-## 03_02Working with while and until loops
-
+## 03_02 Working with while and until loops
 ```bash
 #!/usr/bin/env bash
 
@@ -425,7 +331,6 @@ done
 ```
 
 ## 03_03 Introducing 'for' loops
-
 ```bash
 #!/usr/bin/env bash
 
@@ -475,7 +380,6 @@ done
 ```
 
 ## 03_04 Selecting behavior using 'case'
-
 ```bash
 #!/usr/bin/env bash
 animal="dog"
@@ -487,7 +391,6 @@ esac
 ```
 
 ## 03_05 Using functions
-
 ```bash
 #!/usr/bin/env bash
 
@@ -534,7 +437,7 @@ numberthing() {
     echo "This counting was brought to you by $FUNCNAME."
 }
 
-numberthing $(ls /)
+numberthing "$(ls /)"
 echo
 numberthing pine birch maple spruce
 ```
@@ -556,7 +459,6 @@ echo $var3
 ```
 
 ## 03_06 Reading and writing text files
-
 ```bash
 #!/usr/bin/env bash
 
@@ -584,7 +486,6 @@ done < ~/textfile.txt
 ```
 
 ## 04_01 Working with arguments
-
 ```bash
 #!/usr/bin/env bash
 
@@ -619,7 +520,6 @@ echo "There were $# arguments."
 ```
 
 ## 04_02 Working with options
-
 ```bash
 #!/usr/bin/env bash
 
@@ -665,7 +565,6 @@ echo "user: $user / pass: $pass"
 ```
 
 ## 04_03 Getting input during execution
-
 ```bash
 #!/usr/bin/env bash
 
@@ -677,8 +576,9 @@ read -p "What's your favorite animal? " animal
 
 echo "name: $name, pass: $pass, animal: $animal"
 ```
-
-`help read`
+```bash
+help read
+```
 
 ```bash
 #!/usr/bin/env bash
@@ -706,7 +606,6 @@ done
 ```
 
 ## 04_04 Ensuring a response
-
 ```bash
 #!/usr/bin/env bash
 
