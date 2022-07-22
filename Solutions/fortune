@@ -2,12 +2,12 @@
 
 # A fortune-telling game
 
-echo -e "\t\t   Welcome to the "
-echo -e "\t\t🔮 \033[5mMyStIcAl sPhErE\033[0m 🔮"
+echo -e "\t\t   Welcome  to  the "
+echo -e "\t\t🔮 \033[5mMYSTICAL  SPHERE\033[0m 🔮"
 echo
 
-waitingnumber=$(( 0 + $RANDOM % 3 ))
-mysterynumber=$(( 1 + $RANDOM % 10 ))
+waitingnumber=$(( 0 + RANDOM % 3 ))
+mysterynumber=$(( 1 + RANDOM % 10 ))
 
 declare -a fortunes=(
 	"You are likely to achieve the outcome you seek."
@@ -30,5 +30,5 @@ case $waitingnumber in
 esac
 
 echo
-echo ${fortunes[mysterynumber]}
+echo "${fortunes[mysterynumber]}"
 echo

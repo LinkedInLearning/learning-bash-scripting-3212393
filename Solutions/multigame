@@ -4,8 +4,8 @@
 
 # The game definitions
 guess() {
-	local -i mynumber=$(( 1 + $RANDOM % 10 ))
-	read -p "I'm thinking of a number between 1 and 10. What do you think it is? " theguess
+	local -i mynumber=$(( 1 + RANDOM % 10 ))
+	read -rp "I'm thinking of a number between 1 and 10. What do you think it is? " theguess
 	if (( theguess == mynumber )); then
 		echo "You got it! Great Job!"; echo
 	else
@@ -16,7 +16,7 @@ guess() {
 }
 
 flip() {
-	local -i mynumber=$(( 1 + $RANDOM % 2 ))
+	local -i mynumber=$(( 1 + RANDOM % 2 ))
 	if (( mynumber == 1 )); then
 		local face="HEADS"
 	else
@@ -28,8 +28,8 @@ flip() {
 }
 
 dice() {
-	local -i mynumber=$(( 1 + $RANDOM % 6 ))
-	local -i mynumber2=$(( 1 + $RANDOM % 6 ))
+	local -i mynumber=$(( 1 + RANDOM % 6 ))
+	local -i mynumber2=$(( 1 + RANDOM % 6 ))
 	printf "I rolled two dice and the results are: %s and %s.\n\n" $mynumber $mynumber2
 	sleep 1
 	choosegame
