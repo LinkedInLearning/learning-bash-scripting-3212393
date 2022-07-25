@@ -11,6 +11,7 @@
   "editor.minimap.enabled": false,
   "editor.smoothScrolling": true,
   "editor.tabSize": 2,
+  "editor.wordWrap": "on",
   "editor.useTabStops": true,
   "emmet.triggerExpansionOnTab": true,
   "explorer.openEditors.visible": 0,

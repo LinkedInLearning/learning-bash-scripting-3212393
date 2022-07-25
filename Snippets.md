@@ -21,6 +21,7 @@ echo {a..z..2}
 touch file_{01..12}{a..d}
 echo {cat,dog,fox}
 echo {cat,dog,fox}_{1..5}
+ls ~/{dir1,dir2,dir3}
 ```
 
 ## 01_07 Parameter expansion
@@ -50,9 +51,9 @@ echo $(( 4 * 5 ))
 echo $(( 4 / 5 ))
 ```
 
-## 02_02 Understanding Bash script syntax
+## 02_01 Understanding Bash script syntax
 ```bash
-nano myscript
+code myscript # or use vi, nano, emacs, etc.
 
 #!/usr/bin/env bash
 echo "hello"
@@ -156,8 +157,8 @@ declare -i d=3
 e=$(echo "scale=3; $c/$d | bc)
 echo $e
 echo $RANDOM
-echo $(( 1 + $RANDOM % 10 ))
-echo $(( 1 + $RANDOM % 20 ))
+echo $(( 1 + RANDOM % 10 ))
+echo $(( 1 + RANDOM % 20 ))
 ```
 
 ## 02_06 Comparing values with test
@@ -379,6 +380,15 @@ do
 done
 ```
 
+```bash
+#!/usr/bin/env bash
+
+for i in *
+do
+    echo "Found a file: $i"
+done
+```
+
 ## 03_04 Selecting behavior using 'case'
 ```bash
 #!/usr/bin/env bash
@@ -428,18 +438,18 @@ greet Everybody Evening
 ```bash
 #!/usr/bin/env bash
 
-numberthing() {
+numberthings() {
     declare -i i=1
-    for f in $@; do
+    for f in "$@"; do
         echo "$i: $f"
         (( i += 1 ))
     done
     echo "This counting was brought to you by $FUNCNAME."
 }
 
-numberthing "$(ls /)"
+numberthings /*
 echo
-numberthing pine birch maple spruce
+numberthings pine birch maple spruce
 ```
 
 ```bash
@@ -502,21 +512,18 @@ echo "Argument 2 is $2"
 ```bash
 #!/usr/bin/env bash
 
-for i in $@
-do
-    echo $i
-done
-```
-
-```bash
-#!/usr/bin/env bash
-
-for i in $@
+for i in "$@"
 do
     echo $i
 done
 
 echo "There were $# arguments."
+```
+
+```bash
+./my.sh apple orange
+./my.sh apple orange banana kiwi lemon
+./my.sh apple "orange banana" kiwi lemon
 ```
 
 ## 04_02 Working with options
