@@ -54,13 +54,17 @@ echo $(( 4 / 5 ))
 ## 02_01 Understanding Bash script syntax
 ```bash
 code myscript # or use vi, nano, emacs, etc.
+```
 
+```bash
 #!/usr/bin/env bash
 echo "hello"
 
 # This is a comment
 echo "there"
+```
 
+```bash
 chmod +x myscript
 ./myscript
 ```
@@ -154,7 +158,7 @@ echo $b
 echo $((1/3))
 declare -i c=1
 declare -i d=3
-e=$(echo "scale=3; $c/$d | bc)
+e=$(echo "scale=3; $c/$d" | bc)
 echo $e
 echo $RANDOM
 echo $(( 1 + RANDOM % 10 ))
@@ -491,7 +495,7 @@ done
 #!/usr/bin/env bash
 
 while read f
-    do echo "I read a line an it says: $f"
+    do echo "I read a line and it says: $f"
 done < ~/textfile.txt
 ```
 
