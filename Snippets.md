@@ -21,7 +21,6 @@ echo {a..z..2}
 touch file_{01..12}{a..d}
 echo {cat,dog,fox}
 echo {cat,dog,fox}_{1..5}
-ls ~/{dir1,dir2,dir3}
 ```
 
 ## 01_07 Parameter expansion
@@ -51,20 +50,16 @@ echo $(( 4 * 5 ))
 echo $(( 4 / 5 ))
 ```
 
-## 02_01 Understanding Bash script syntax
+## 02_02 Understanding Bash script syntax
 ```bash
-code myscript # or use vi, nano, emacs, etc.
-```
+nano myscript
 
-```bash
 #!/usr/bin/env bash
 echo "hello"
 
 # This is a comment
 echo "there"
-```
 
-```bash
 chmod +x myscript
 ./myscript
 ```
@@ -158,11 +153,11 @@ echo $b
 echo $((1/3))
 declare -i c=1
 declare -i d=3
-e=$(echo "scale=3; $c/$d" | bc)
+e=$(echo "scale=3; $c/$d | bc)
 echo $e
 echo $RANDOM
-echo $(( 1 + RANDOM % 10 ))
-echo $(( 1 + RANDOM % 20 ))
+echo $(( 1 + $RANDOM % 10 ))
+echo $(( 1 + $RANDOM % 20 ))
 ```
 
 ## 02_06 Comparing values with test
@@ -384,15 +379,6 @@ do
 done
 ```
 
-```bash
-#!/usr/bin/env bash
-
-for i in *
-do
-    echo "Found a file: $i"
-done
-```
-
 ## 03_04 Selecting behavior using 'case'
 ```bash
 #!/usr/bin/env bash
@@ -442,18 +428,18 @@ greet Everybody Evening
 ```bash
 #!/usr/bin/env bash
 
-numberthings() {
+numberthing() {
     declare -i i=1
-    for f in "$@"; do
+    for f in $@; do
         echo "$i: $f"
         (( i += 1 ))
     done
     echo "This counting was brought to you by $FUNCNAME."
 }
 
-numberthings /*
+numberthing "$(ls /)"
 echo
-numberthings pine birch maple spruce
+numberthing pine birch maple spruce
 ```
 
 ```bash
@@ -495,7 +481,7 @@ done
 #!/usr/bin/env bash
 
 while read f
-    do echo "I read a line and it says: $f"
+    do echo "I read a line an it says: $f"
 done < ~/textfile.txt
 ```
 
@@ -516,18 +502,21 @@ echo "Argument 2 is $2"
 ```bash
 #!/usr/bin/env bash
 
-for i in "$@"
+for i in $@
+do
+    echo $i
+done
+```
+
+```bash
+#!/usr/bin/env bash
+
+for i in $@
 do
     echo $i
 done
 
 echo "There were $# arguments."
-```
-
-```bash
-./my.sh apple orange
-./my.sh apple orange banana kiwi lemon
-./my.sh apple "orange banana" kiwi lemon
 ```
 
 ## 04_02 Working with options
@@ -595,7 +584,7 @@ help read
 #!/usr/bin/env bash
 
 echo "Which animal"
-select animal in "cat" "dog" "bird" "fish"
+select animal in "bird" "dog" "bird" "fish"
 do
     echo "You selected $animal!"
     break
@@ -606,10 +595,10 @@ done
 #!/usr/bin/env bash
 
 echo "Which animal"
-select animal in "cat" "dog" "quit"
+select animal in "bird" "dog" "quit"
 do
     case $animal in
-        cat) echo "Cats like to sleep.":;
+        bird) echo "Birds like to fly.":;
         dog) echo "Dogs like to play catch.";;
         quit) break;;
         *) echo "I'm not sure what that is.";;
