@@ -50,7 +50,7 @@ echo $(( 4 * 5 ))
 echo $(( 4 / 5 ))
 ```
 
-## 02_02 Understanding Bash script syntax
+## 02_01 Understanding Bash script syntax
 ```bash
 nano myscript
 
