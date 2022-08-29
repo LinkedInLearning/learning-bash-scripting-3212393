@@ -312,7 +312,6 @@ declare -i m=0
 until (( m == 10 )); do
     echo "m:$m"
     (( m++ ))
-    sleep 1
 done
 ```
 
@@ -372,7 +371,19 @@ done
 declare -a fruits=("apple" "banana" "cherry")
 for i in ${fruits[@]}
 do
-    echo "Today's fruit is: $i"
+    echo $i
+done
+```
+
+```bash
+#!/usr/bin/env bash
+
+declare -A arr
+arr["name"]="scott"
+arr["id"]="1234"
+for i in "${!arr[@]}"
+do
+    echo $i: "${arr[$i]}"
 done
 ```
 
@@ -380,6 +391,15 @@ done
 #!/usr/bin/env bash
 
 for i in $(ls)
+do
+    echo "Found a file: $i"
+done
+```
+
+```bash
+#!/usr/bin/env bash
+
+for i in *
 do
     echo "Found a file: $i"
 done
