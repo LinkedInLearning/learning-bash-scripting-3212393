@@ -12,5 +12,5 @@ Scott Simpson
 Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/scott-simpson).
 
 [lil-course-url]: https://www.linkedin.com/learning/learning-bash-scripting-17063287
-[lil-thumbnail-url]: https://media.licdn.com/dms/image/C560DAQEJosEprFE3sA/learning-public-crop_675_1200/0/1666221739133?e=1667952000&v=beta&t=GbG-mlRN-AeRMRnjbhUD57U8-Uv-tX7psk7sEE3q9LE
+[lil-thumbnail-url]: https://cdn.lynda.com/course/3212393/3212393-1667864333293-16x9.jpg
 [gcs-video-url]: https://www.linkedin.com/learning/learning-bash-scripting-17063287/using-github-codespaces-with-this-course
