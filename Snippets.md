@@ -624,10 +624,11 @@ echo "Which animal"
 select animal in "bird" "dog" "quit"
 do
     case $animal in
-        bird) echo "Birds like to fly.":;
+        bird) echo "Birds like to fly.";;
         dog) echo "Dogs like to play catch.";;
         quit) break;;
         *) echo "I'm not sure what that is.";;
+    esac
 done
 ```
 
