@@ -20,5 +20,8 @@
   "terminal.integrated.fontSize": 16,
   "workbench.colorTheme": "Visual Studio Dark",
   "workbench.fontAliasing": "antialiased",
-  "workbench.statusBar.visible": true
+  "workbench.statusBar.visible": true,
+  "githubPullRequests.ignoredPullRequestBranches": [
+    "main"
+  ]
 }
