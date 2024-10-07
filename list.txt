@@ -1,0 +1,12 @@
+total 64
+-rw-rw-rw-  1 codespace root      11106 Sep 29 17:26 Snippets.md
+-rw-rw-rw-  1 codespace root       1671 Sep 29 17:26 README.md
+-rw-rw-rw-  1 codespace root        617 Sep 29 17:26 NOTICE
+-rw-rw-rw-  1 codespace root       6648 Sep 29 17:26 LICENSE
+-rw-rw-rw-  1 codespace root        635 Sep 29 17:26 CONTRIBUTING.md
+-rw-rw-rw-  1 codespace root      12577 Sep 29 17:26 lorem.txt
+drwxrwxrwx+ 2 codespace root       4096 Sep 29 17:26 dir3
+drwxrwxrwx+ 2 codespace root       4096 Sep 29 17:26 dir2
+drwxrwxrwx+ 2 codespace root       4096 Sep 29 17:26 dir1
+drwxrwxrwx+ 2 codespace root       4096 Sep 29 17:26 Solutions
+-rw-rw-rw-  1 codespace codespace     0 Sep 29 17:30 list.txt
